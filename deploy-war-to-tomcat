@@ -10,7 +10,6 @@ node{
    stage('Deploy to Tomcat'){
       
      sshagent(['jenkins1']) {
- {
          sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@sshagent(['jenkins1']) {
 :/opt/tomcat8/webapps/'
       }
