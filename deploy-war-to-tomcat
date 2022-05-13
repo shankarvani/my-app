@@ -9,14 +9,16 @@ node{
    }
    stage('Deploy to Tomcat'){
       
-      sshagent(['tomcat-dev']) {
-         sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.29.242:/opt/tomcat8/webapps/'
+     sshagent(['jenkins1']) {
+ {
+         sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@sshagent(['jenkins1']) {
+:/opt/tomcat8/webapps/'
       }
    }
    stage('Email Notification'){
       mail bcc: '', body: '''Hi Welcome to jenkins email alerts
       Thanks
-      Hari''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'hari.kammana@gmail.com'
+      Hari''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'vani212008@gmail.com'
    }
    stage('Slack Notification'){
        slackSend baseUrl: 'https://hooks.slack.com/services/',
